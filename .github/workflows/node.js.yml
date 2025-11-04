@@ -10,23 +10,26 @@ on:
 
 jobs:
   build:
-    name: Run E2E Testse
+    name: Run E2E Testss
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5.0.0
-      - name: Use Node.js 21
+      - name: Use Node.js 22
         uses: actions/setup-node@v6.0.0
         with:
           node-version: 22
-          cache: 'npm'      
+          cache: 'npm'
+      - run: npm install
+      - run: npx playwright install
+      - run: npm run actions  # Rodará apenas seus testes Playwright normais
 
   sonarqube:
     name: SonarQube
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
         env:
