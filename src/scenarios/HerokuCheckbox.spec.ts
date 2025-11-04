@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Teste de Checkboxes – The Internet', () => {
+test.describe('Testee de Checkboxes – The Internet', () => {
   test('Deve marcar e desmarcar checkboxes corretamente', async ({ page }) => {
     // Acessa a página
     await page.goto('https://the-internet.herokuapp.com/checkboxes');
